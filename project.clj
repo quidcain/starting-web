@@ -5,6 +5,7 @@
             :url "http://www.eclipse.org/legal/epl-v10.html"}
   :plugins [[lein-ring "0.12.4"]]
   :ring {:handler starting-web.core/handler}
+  :main starting-web.core
   :dependencies [[org.clojure/clojure "1.8.0"]
                  [ring/ring-core "1.6.3"]
                  [ring/ring-jetty-adapter "1.6.3"]

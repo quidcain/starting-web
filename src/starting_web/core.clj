@@ -1,6 +1,7 @@
 (ns starting-web.core
   (:require [ring.adapter.jetty :refer [run-jetty]])
-  (:require [ring.middleware.reload :refer [wrap-reload]]))
+  (:require [ring.middleware.reload :refer [wrap-reload]])
+  (:gen-class))
 
 (defn handler [request]
   {:status 200
@@ -10,8 +11,14 @@
 (def app
   (wrap-reload handler))
 
+(defn create-start-server []
+  (run-jetty #'app {:port 3000 :join? false}))
+
+(defn -main [& args]
+  (create-start-server))
+
 ;; Usefull commands to run server from REPL
 ;; 
-;;(def server (run-jetty #'app {:port 3000 :join? false}))
+;;(def server (create-start-server))
 ;;(.start server)
 ;;(.stop server)

@@ -9,4 +9,5 @@
   :dependencies [[org.clojure/clojure "1.8.0"]
                  [ring/ring-core "1.6.3"]
                  [ring/ring-jetty-adapter "1.6.3"]
-                 [ring/ring-devel "1.6.3"]])
+                 [ring/ring-devel "1.6.3"]
+                 [ring/ring-json "0.4.0"]])

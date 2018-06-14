@@ -5,6 +5,6 @@
 (deftest a-test
   (testing "Should return response with 200 code"
     (is (= {:status 200
-            :headers {"Content-Type" "text/html"}
-            :body "Hello World"}
+            :headers {}
+            :body  {:message "Hello World"}}
            (handler {})))))

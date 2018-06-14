@@ -1,18 +1,21 @@
 (ns starting-web.core
   (:require [ring.adapter.jetty :refer [run-jetty]])
+  (:require [ring.util.response :refer [response]])
   (:require [ring.middleware.reload :refer [wrap-reload]])
+  (:require [ring.middleware.json :refer [wrap-json-response]])
   (:gen-class))
 
 (defn handler [request]
-  {:status 200
-   :headers {"Content-Type" "text/html"}
-   :body "Hello World"})
+  (response {:message "Hello World"}))
 
 (def app
-  (wrap-reload handler))
+  (wrap-json-response handler))
+
+(def reloadable-app
+  (wrap-reload app))
 
 (defn create-start-server []
-  (run-jetty #'app {:port 3000 :join? false}))
+  (run-jetty #'reloadable-app {:port 3000 :join? false}))
 
 (defn -main [& args]
   (create-start-server))

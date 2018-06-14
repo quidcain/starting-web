@@ -7,4 +7,7 @@
    :body "Hello World"})
 
 
-;;(defonce server (run-jetty handler {:port 3000}))
+(defonce server (run-jetty handler {:port 3000 :join? false}))
+
+;;(.start server)
+;;(.stop server)

@@ -2,14 +2,17 @@
   (:require [ring.adapter.jetty :refer [run-jetty]])
   (:require [ring.util.response :refer [response]])
   (:require [ring.middleware.reload :refer [wrap-reload]])
-  (:require [ring.middleware.json :refer [wrap-json-response]])
+  (:require [ring.middleware.json :refer [wrap-json-response
+                                          wrap-json-body]])
   (:gen-class))
 
 (defn handler [request]
   (response {:message "Hello World"}))
 
 (def app
-  (wrap-json-response handler))
+  (-> handler
+      wrap-json-body
+      wrap-json-response))
 
 (def reloadable-app
   (wrap-reload app))

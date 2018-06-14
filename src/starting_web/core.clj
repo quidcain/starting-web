@@ -1,8 +1,8 @@
 (ns starting-web.core
-  (:require [ring.adapter.jetty :refer [run-jetty]])
-  (:require [ring.util.response :refer [response]])
-  (:require [ring.middleware.reload :refer [wrap-reload]])
-  (:require [ring.middleware.json :refer [wrap-json-response
+  (:require [ring.adapter.jetty :refer [run-jetty]]
+            [ring.util.response :refer [response]]
+            [ring.middleware.reload :refer [wrap-reload]]
+            [ring.middleware.json :refer [wrap-json-response
                                           wrap-json-body]])
   (:gen-class))
 
@@ -28,3 +28,4 @@
 ;;(def server (create-start-server))
 ;;(.start server)
 ;;(.stop server)
+

@@ -64,7 +64,7 @@
          "application/json"))
     (is (=
          (parse-string (:body response))
-         {"message" "GET products"}))))
+         {"message" "GET orders"}))))
 
 (deftest post-order-test
   (let [response (app (mock/request :post "/orders"))]
@@ -74,7 +74,7 @@
          "application/json"))
     (is (=
          (parse-string (:body response))
-         {"message" "POST products"}))))
+         {"message" "POST order"}))))
 
 (deftest get-order-test
   (let [response (app (mock/request :get "/orders/1"))]
@@ -84,7 +84,7 @@
          "application/json"))
     (is (=
          (parse-string (:body response))
-         {"message" "GET product 1"}))))
+         {"message" "GET order 1"}))))
 
 (deftest delete-order-test
   (let [response (app (mock/request :delete "/orders/1"))]
@@ -94,7 +94,7 @@
          "application/json"))
     (is (=
          (parse-string (:body response))
-         {"message" "DELETE product 1"}))))
+         {"message" "DELETE order 1"}))))
 
 (deftest unknown-route-test
     (let [response (app (mock/request :get "/weird-route"))]

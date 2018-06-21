@@ -10,7 +10,8 @@
                  [ring/ring-core "1.6.3"]
                  [ring/ring-jetty-adapter "1.6.3"]
                  [ring/ring-devel "1.6.3"]
-                 [ring/ring-json "0.4.0"]]
+                 [ring/ring-json "0.4.0"]
+                 [compojure "1.6.1"]]
   :profiles
   {:dev {:dependencies [[ring/ring-mock "0.3.2"]
                         [cheshire "5.8.0"]]}})
